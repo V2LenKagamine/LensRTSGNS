@@ -41,14 +41,14 @@ public class LensRTSGNS implements ModInitializer{
 	public static final Ammo_Base_Item AMMO_BASE_ITEM = new Ammo_Base_Item(new FabricItemSettings().stacksTo(1));
 
 	//APIs
-	public static final ItemApiLookup<GunTimerAPI, Void> GUN_TIMER = ItemApiLookup.get(new ResourceLocation("lrtsgns:gun_timer"), GunTimerAPI.class, Void.class);
+	public static final ItemApiLookup<GunTimerAPI, Void> GUN_TIMER = ItemApiLookup.get(new ResourceLocation(MOD_ID,"gun_timer"), GunTimerAPI.class, Void.class);
 	@Override
 	public void onInitialize() {
 		Registry.register(BuiltInRegistries.ITEM,new ResourceLocation(MOD_ID,"test_item"),TEST_ITEM);
 		Registry.register(BuiltInRegistries.ITEM,new ResourceLocation(MOD_ID,"gun_base_item"), GUN_BASE_ITEM);
 		Registry.register(BuiltInRegistries.ITEM,new ResourceLocation(MOD_ID,"ammo_base_item"),AMMO_BASE_ITEM);
 
-		GUN_TIMER.registerForItems((itemStack, context) -> {return new GunTimerAPI();},GUN_BASE_ITEM);
+		GUN_TIMER.registerForItems((itemStack, context) -> new GunTimerAPI(),GUN_BASE_ITEM);
 
 		//Pack Loader. Loads parts and stuff.
 		ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new LensFabricJsonReloadListener<>("materials", MATERIAL_BASE_CODEC));

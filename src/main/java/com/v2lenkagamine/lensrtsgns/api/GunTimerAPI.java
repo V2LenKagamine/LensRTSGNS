@@ -1,5 +1,5 @@
 package com.v2lenkagamine.lensrtsgns.api;
-public final class GunTimerAPI {
+public class GunTimerAPI {
 
     int reloadTimer = 0;
     public int getTimer() {

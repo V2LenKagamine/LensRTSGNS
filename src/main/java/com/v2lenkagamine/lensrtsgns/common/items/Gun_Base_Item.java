@@ -49,9 +49,9 @@ public class Gun_Base_Item extends Item implements IGunBase{
         if (!world.isClientSide) {
             GunTimerAPI heldGun = LensRTSGNS.GUN_TIMER.find(user.getItemInHand(hand), null);
             if (heldGun != null) {
-                if(heldGun.getTimerTicks() <= 0) {
-                    WeaponFire.firePierce(user, 2, 5);
-                    heldGun.setTimer(5);
+                if(heldGun.getTimerTicks() == 0) {
+                    WeaponFire.firePierce(user, 16, 5);
+                    heldGun.setTimer(10);
                 }
             }
         }

@@ -9,6 +9,7 @@ public class DataGeneration implements DataGeneratorEntrypoint {
 
         fabricDataGenerator.createPack().addProvider(LensModelGenerator::new);
         fabricDataGenerator.createPack().addProvider(LensLangGenerator::new);
+        fabricDataGenerator.createPack().addProvider(LensMaterialGenerator::new);
 
     }
 }
